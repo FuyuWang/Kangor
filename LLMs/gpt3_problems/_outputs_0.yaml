@@ -1,0 +1,6 @@
+problem:
+  H: 1
+  M: 2048
+  K: 12288
+  N: 12288
+  shape: gemm

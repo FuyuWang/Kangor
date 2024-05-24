@@ -1,0 +1,6 @@
+problem:
+  H: 32
+  M: 512
+  K: 128
+  N: 512
+  shape: bmm

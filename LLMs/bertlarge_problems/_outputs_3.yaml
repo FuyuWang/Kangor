@@ -1,0 +1,6 @@
+problem:
+  H: 1
+  M: 512
+  K: 1024
+  N: 4096
+  shape: gemm

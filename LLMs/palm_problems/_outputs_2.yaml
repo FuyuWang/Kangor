@@ -1,0 +1,6 @@
+problem:
+  H: 72
+  M: 2048
+  K: 2048
+  N: 256
+  shape: bmm
