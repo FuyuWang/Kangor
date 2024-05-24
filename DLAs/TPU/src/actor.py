@@ -45,12 +45,7 @@ class Actor(nn.Module):
 
         # print(tiles.size(), tiles)
         H, M, K, N = torch.unbind(tiles, dim=1)
-        if cur_buffer_level == 1:   # LRF
-            N = trg_seq_disorder.new_zeros(batch_size)
-        elif cur_buffer_level == 2:     # RF
-            K = trg_seq_disorder.new_zeros(batch_size)
 
-        # input_tile = N * (P + R - 1) * (Q + S - 1) * C
         input_tile = H * M * K
         weight_tile = H * K * N
         output_tile = H * M * N
