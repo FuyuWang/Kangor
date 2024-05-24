@@ -1,23 +1,23 @@
-# AuKerGen
+# Kangor
 
 ### Setup ###
-* Download the AuKerGen source code 
+* Download the Kangor source code 
 
 * Create virtual environment through anaconda
 ```
-conda create --name AuKerGenEnv python=3.8
-conda activate AuKerGenEnv
+conda create --name KangorEnv python=3.8
+conda activate KangorEnv
 ```
 * Install packages
    
 ```
-cd AuKerGen
+cd Kangor
 pip install -r requirements.txt
 ```
 
 * Install [Timeloop](https://timeloop.csail.mit.edu/timeloop)
 
-### Run AuKerGen on Simba ###
+### Run Kangor on Simba ###
 
 ```
 cd DLAs/Simba
