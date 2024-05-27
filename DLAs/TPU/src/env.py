@@ -279,17 +279,22 @@ class Environment(object):
             done = 1
             info = None
             reward_saved = copy.deepcopy(self.get_reward(self.final_trg_seq))
-            # reward_saved[reward_saved==float('-inf')] = self.min_reward
-            # sort_idx = np.argsort(reward_saved)
-            # top_k_idx = sort_idx[int(self.batch_size / 4) - 1]
-            # reward = (reward_saved - reward_saved[top_k_idx])
-            reward_saved[reward_saved==float('-inf')] = float('inf')
-            if self.min_reward is None:
-                self.min_reward = reward_saved.min()
-            else:
-                self.min_reward = min(self.min_reward, reward_saved.min())
-            reward_saved[reward_saved == float('inf')] = self.min_reward
-            reward = reward_saved - self.min_reward
+
+            reward_saved[reward_saved == float('-inf')] = float('inf')
+            reward_saved[reward_saved == float('inf')] = reward_saved.min()
+            sort_idx = np.argsort(reward_saved)
+            top_k_idx = sort_idx[int(self.batch_size / 4) - 1]
+            reward = (reward_saved - reward_saved[top_k_idx])
+
+            # reward_saved[reward_saved==float('-inf')] = float('inf')
+            # if self.min_reward is None:
+            #     self.min_reward = reward_saved.min()
+            # else:
+            #     self.min_reward = min(self.min_reward, reward_saved.min())
+            # reward_saved[reward_saved == float('inf')] = self.min_reward
+            # reward = reward_saved - self.min_reward
+
+
             # reward_saved[reward_saved==float('inf')] = reward_saved.min()
             # reward = (reward_saved - reward_saved.min()) / (reward_saved.std() + 1e-12)
             # self.last_reward = reward_saved

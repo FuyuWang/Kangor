@@ -10,8 +10,8 @@ architecture:
       attributes:
         block-size: 64
         word-bits: 8
-        read_bandwidth: 16
-        write_bandwidth: 16
+        read_bandwidth: 1
+        write_bandwidth: 1
 
     subtree:
     - name: Chip
